@@ -8,8 +8,8 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("Se ven los empresarios") }}
+                <div class="p-6 text-green-800">
+                    {{ __("Empresarios") }}
                     {{-- <livewire:crear-empresario/> --}}
                     <livewire:show-empresarios/>
                 

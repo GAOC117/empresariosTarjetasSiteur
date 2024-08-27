@@ -15,84 +15,64 @@ class ShowEmpresarios extends Component
     public $nombreEmpresario = "";
     public $nombreNuevoEmpresario = "";
 
-    protected $rules = [
-    //    "nombreEmpresario" => "required",
-       "nombreNuevoEmpresario" => "required"
-      
+    protected $listeners = [
+        'empresarioActualizado' => 'render',
+        'cancelarEditar' => 'cancelarEditar',
+        // 'crearEmpresario' => 'nuevoEmpresario'
     ];
 
-    protected $messages = [
-         'nombreEmpresario.required' => 'Se requiere un nombre de empresario para poder actualizar',
-        'nombreNuevoEmpresario.required' => 'Se requiere un nombre de empresario para poder ser registrado'
-    ];
+    // protected $rules = [
+    // //    "nombreEmpresario" => "required",
+    //    "nombreNuevoEmpresario" => "required"
+
+    // ];
+
+    // protected $messages = [
+    //      'nombreEmpresario.required' => 'Se requiere un nombre de empresario para poder actualizar',
+    //      'nombreNuevoEmpresario.required' => 'Se requiere un nombre de empresario para poder ser registrado'
+    // ];
 
 
     public function editar($id)
     {
-        $this->resetErrorBag();
+        //dd($id);
+        //$this->resetErrorBag();
         $empresario = Empresarios::find($id);
 
         if ($empresario) {
             $this->mostrarEdicion = true;
             $this->idEmpresario = $id;
+            $this->crearEmpresario = false;
             $this->nombreEmpresario = $empresario->empresarios;
+            $this->dispatch('editar',$empresario);
             // dd($this->nombreEmpresario);
         }
     }
 
-
-    public function nuevoEmpresario()
-    {
-        $this->resetErrorBag();
-        $this->crearEmpresario = true;
-        $this->nombreEmpresario = "";
-        $this->nombreNuevoEmpresario = "";
-        
-    }
-
-    public function create()
-    {
-        $this->resetErrorBag();
-        
-        //    $datos = $this->validate([
-            
-        //      'nombreNuevoEmpresario' => 'required'
-        //    ]);
-        $datos = $this->validate();
-          dd($datos);
-        // Empresarios::create([
-        //     'empresarios' => $datos['nombreNuevoEmpresario']
-        // ]);
-    }
-
-    public function update()
-    {
-        $this->resetErrorBag();
-        $datos = $this->validate();
-        $empresario = Empresarios::find($this->idEmpresario);
-        $empresario->empresarios = $datos['nombreEmpresario'];
-
-        if ($empresario->save()) {
-            session()->flash('message', 'Empresario actualizado exitosamente.');
-            $this->nombreEmpresario = "";
-            $this->mostrarEdicion = false;
-        } else {
-            session()->flash('error', 'No se pudo actualizar el empresario.');
-        }
-    }
+// public function nuevoEmpresario(){
+//     $this->crearEmpresario = true;
+//     $this->mostrarEdicion = false;
+// }
+   
 
 
-    public function cancel()
+    public function cancelarEditar()
     {
         $this->mostrarEdicion = false;
         $this->crearEmpresario = false;
+        // $this->dispatch('cancelarEditar');
     }
 
     public function render()
     {
-        $empresarios = Empresarios::all();
+        $empresarios = Empresarios::paginate(10);
         return view('livewire.show-empresarios', [
-            "empresarios" => $empresarios
+            "empresarios" => $empresarios,
+            "mostrarEdicion" => $this->mostrarEdicion,
+            "nombreEmpresario" => $this->nombreEmpresario,
+            "idEmpresario" => $this->idEmpresario,
+            "crearEmpresario" => $this->crearEmpresario
+
         ]);
     }
 }
