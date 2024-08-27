@@ -9,7 +9,7 @@ class Empresarios extends Model
 {
     use HasFactory;
 protected $fillable = [
-    'empresario'
+    'empresarios'
 ];
 
 }

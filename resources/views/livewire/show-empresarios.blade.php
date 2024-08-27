@@ -9,6 +9,8 @@
     {{-- @if ($mostrarEdicion) --}}
         <livewire:editar-empresario :crearEmpresario="$crearEmpresario" :mostrarEdicion="$mostrarEdicion" :nombreEmpresario="$nombreEmpresario" :idEmpresario="$idEmpresario" />
     {{-- @endif --}}
+
+    <livewire:filtrar-empresarios/>
     <div class="py-5">
         <table class="table table-striped">
             <tr class="text-2xl">

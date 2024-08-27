@@ -1,5 +1,5 @@
 <div>
-    
+
     @if (session()->has('message'))
         <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 5000)" x-show="show" class="alert alert-success">
             {{ session('message') }}
@@ -16,6 +16,7 @@
     {{-- <form action="#" wire:submit.prevent="update"> --}}
     @if ($mostrarEdicion)
         <div class="row">
+            <p class="font-bold pb-2">Editar empresario <span class="text-yellow-600"> {{ $nombreEmpresario }}</span></p>
             <div class="col-md-9">
 
                 <x-text-input id="nombreEmpresario" type="text" wire:model="nombreEmpresario"

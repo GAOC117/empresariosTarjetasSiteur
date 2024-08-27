@@ -4,9 +4,13 @@ namespace App\Livewire;
 
 use App\Models\Empresarios;
 use Livewire\Component;
+use Livewire\WithPagination;
+
 
 class ShowEmpresarios extends Component
 {
+    
+    use WithPagination;
 
     public $idEmpresario;
     public $mostrarEdicion = false;
@@ -14,29 +18,30 @@ class ShowEmpresarios extends Component
 
     public $nombreEmpresario = "";
     public $nombreNuevoEmpresario = "";
+    public $nombreBusqueda;
 
     protected $listeners = [
         'empresarioActualizado' => 'render',
+        'empresarioRegistrado' =>'render',
         'cancelarEditar' => 'cancelarEditar',
-        // 'crearEmpresario' => 'nuevoEmpresario'
+        'cancelarRegistrar' => 'cancelarRegistrar',
+        'nombreBusqueda' => 'buscar'
     ];
 
-    // protected $rules = [
-    // //    "nombreEmpresario" => "required",
-    //    "nombreNuevoEmpresario" => "required"
+    // protected $paginationTheme = 'bootstrap';
+   
+    public function buscar($nombreBusqueda)
+    {
+        $this->nombreBusqueda = $nombreBusqueda;
+       
+        $this->resetPage();
 
-    // ];
-
-    // protected $messages = [
-    //      'nombreEmpresario.required' => 'Se requiere un nombre de empresario para poder actualizar',
-    //      'nombreNuevoEmpresario.required' => 'Se requiere un nombre de empresario para poder ser registrado'
-    // ];
+    }
 
 
     public function editar($id)
     {
-        //dd($id);
-        //$this->resetErrorBag();
+       
         $empresario = Empresarios::find($id);
 
         if ($empresario) {
@@ -45,14 +50,11 @@ class ShowEmpresarios extends Component
             $this->crearEmpresario = false;
             $this->nombreEmpresario = $empresario->empresarios;
             $this->dispatch('editar',$empresario);
-            // dd($this->nombreEmpresario);
+           
         }
     }
 
-// public function nuevoEmpresario(){
-//     $this->crearEmpresario = true;
-//     $this->mostrarEdicion = false;
-// }
+
    
 
 
@@ -60,12 +62,22 @@ class ShowEmpresarios extends Component
     {
         $this->mostrarEdicion = false;
         $this->crearEmpresario = false;
-        // $this->dispatch('cancelarEditar');
+        
+    }
+    public function cancelarRegistrar()
+    {
+        $this->mostrarEdicion = false;
+        $this->crearEmpresario = false;
+       
+        
     }
 
     public function render()
     {
-        $empresarios = Empresarios::paginate(10);
+        $empresarios = Empresarios::when($this->nombreBusqueda, function($query){
+            $query->where('empresarios','LIKE','%'.$this->nombreBusqueda.'%');
+        })->orderBy('empresarios','ASC')->paginate(10);
+        
         return view('livewire.show-empresarios', [
             "empresarios" => $empresarios,
             "mostrarEdicion" => $this->mostrarEdicion,

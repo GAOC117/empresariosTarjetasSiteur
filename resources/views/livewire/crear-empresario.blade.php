@@ -1,5 +1,5 @@
 <div>
-    @if (session()->has('message'))
+   @if (session()->has('message'))
         <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 5000)" x-show="show" class="alert alert-success">
             {{ session('message') }}
         </div>
@@ -22,8 +22,9 @@
         @elseif($crearEmpresario)
             {{-- <form action="#" wire:submit.prevent="create"> --}}
             <div class="row">
+                <p class="font-bold pb-2">Registrar nuevo empresario</p>
                 <div class="col-md-9">
-
+                    
                     <x-text-input id="nombreNuevoEmpresario" type="text" wire:model="nombreNuevoEmpresario"
                         placeholder="Nombre del empresario" class="border p-2 rounded w-full" :value="old('nombreNuevoEmpresario')" />
                     @error('nombreNuevoEmpresario')

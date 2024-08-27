@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use App\Models\Empresarios;
 
 class CrearEmpresario extends Component
 {
@@ -63,10 +64,22 @@ class CrearEmpresario extends Component
         //      'nombreNuevoEmpresario' => 'required'
         //    ]);
         $datos = $this->validate();
-        dd($datos);
-        // Empresarios::create([
-        //     'empresarios' => $datos['nombreNuevoEmpresario']
-        // ]);
+       
+        $insertarEmpresario = Empresarios::create([
+            'empresarios' => $datos['nombreNuevoEmpresario']
+        ]);
+if($insertarEmpresario){
+    session()->flash('message','Empresario registrado exitosamente');
+
+    //$this->nombreEmpresario = "";
+    $this->mostrarEdicion = false;
+    $this->dispatch('empresarioRegistrado');
+    // $this->dispatch('cancelarRegistrar');
+    $this->cancelarCrear();
+}
+else{
+    session()->flash('error', 'No se pudo registrar el empresario.');
+}
     }
 
     public function cancelarCrear()
