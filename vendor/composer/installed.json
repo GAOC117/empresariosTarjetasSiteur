@@ -26,7 +26,7 @@
             },
             "time": "2024-07-15T14:28:34+00:00",
             "type": "library",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "ArchTech\\Enums\\": "src/"
@@ -219,7 +219,7 @@
                     "dev-main": "1.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "Composer\\ClassMapGenerator\\": "src"
@@ -298,7 +298,7 @@
                     ]
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "Composer\\Pcre\\": "src"
@@ -371,7 +371,7 @@
                     "dev-main": "3.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "Composer\\Semver\\": "src"
@@ -708,7 +708,7 @@
             },
             "time": "2024-03-11T20:15:12+00:00",
             "type": "library",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "DragonCode\\Contracts\\": "src"
@@ -779,7 +779,7 @@
             },
             "time": "2023-06-02T11:37:44+00:00",
             "type": "library",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "DragonCode\\PrettyArray\\": "src"
@@ -880,7 +880,7 @@
                     }
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "DragonCode\\Support\\": "src"
@@ -1855,7 +1855,7 @@
                     ]
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "LaravelLang\\Actions\\": "src/"
@@ -1925,7 +1925,7 @@
                     ]
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "LaravelLang\\Attributes\\": "src/"
@@ -1998,7 +1998,7 @@
             },
             "time": "2024-07-06T16:48:35+00:00",
             "type": "library",
-            "installation-source": "source",
+            "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -2086,7 +2086,7 @@
                     ]
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "LaravelLang\\Config\\": "src/"
@@ -2162,7 +2162,7 @@
                     ]
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "LaravelLang\\HttpStatuses\\": "src"
@@ -2224,7 +2224,7 @@
             },
             "time": "2024-03-13T09:18:03+00:00",
             "type": "library",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "LaravelLang\\JsonFallback\\": "src"
@@ -2289,7 +2289,7 @@
                     ]
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "LaravelLang\\Lang\\": "src/"
@@ -2339,7 +2339,7 @@
             },
             "time": "2024-06-01T00:24:42+00:00",
             "type": "library",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "LaravelLang\\LocaleList\\": "src/"
@@ -2419,7 +2419,7 @@
                     ]
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "LaravelLang\\Locales\\": "src/"
@@ -2494,7 +2494,7 @@
                     ]
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "LaravelLang\\Models\\": "src/"
@@ -2573,7 +2573,7 @@
             },
             "time": "2024-03-13T09:34:55+00:00",
             "type": "library",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "LaravelLang\\NativeCountryNames\\": "src/"
@@ -2648,7 +2648,7 @@
             },
             "time": "2024-03-13T09:40:02+00:00",
             "type": "library",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "LaravelLang\\NativeCurrencyNames\\": "src/"
@@ -2718,7 +2718,7 @@
             },
             "time": "2024-03-13T09:28:19+00:00",
             "type": "library",
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "LaravelLang\\NativeLocaleNames\\": "src/"
@@ -2805,7 +2805,7 @@
                     ]
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "LaravelLang\\Publisher\\": "src/"
@@ -2897,7 +2897,7 @@
                     ]
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "files": [
                     "helpers/functions.php"
@@ -3571,7 +3571,7 @@
                     ]
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "Laraveles\\Spanish\\": "src"
@@ -5130,17 +5130,17 @@
         },
         {
             "name": "phpunit/php-file-iterator",
-            "version": "5.0.1",
-            "version_normalized": "5.0.1.0",
+            "version": "5.1.0",
+            "version_normalized": "5.1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-file-iterator.git",
-                "reference": "6ed896bf50bbbfe4d504a33ed5886278c78e4a26"
+                "reference": "118cfaaa8bc5aef3287bf315b6060b1174754af6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/6ed896bf50bbbfe4d504a33ed5886278c78e4a26",
-                "reference": "6ed896bf50bbbfe4d504a33ed5886278c78e4a26",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/118cfaaa8bc5aef3287bf315b6060b1174754af6",
+                "reference": "118cfaaa8bc5aef3287bf315b6060b1174754af6",
                 "shasum": ""
             },
             "require": {
@@ -5149,7 +5149,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^11.0"
             },
-            "time": "2024-07-03T05:06:37+00:00",
+            "time": "2024-08-27T05:02:59+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -5182,7 +5182,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-file-iterator/issues",
                 "security": "https://github.com/sebastianbergmann/php-file-iterator/security/policy",
-                "source": "https://github.com/sebastianbergmann/php-file-iterator/tree/5.0.1"
+                "source": "https://github.com/sebastianbergmann/php-file-iterator/tree/5.1.0"
             },
             "funding": [
                 {
@@ -8795,7 +8795,7 @@
                     "url": "https://github.com/symfony/polyfill"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "files": [
                     "bootstrap.php"

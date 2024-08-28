@@ -37,6 +37,9 @@ class CostosIva extends Component
     {
       
         $this->editarCampos = !$this->editarCampos;
+        $this->costoPlastico = $this->costos->costo_plastico;
+        $this->iva = $this->costos->iva;
+
         // dd($this->editar);
     }
 

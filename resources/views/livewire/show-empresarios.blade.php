@@ -1,16 +1,16 @@
 <div>
-  
+
 
 
     {{-- @if (!$mostrarEdicion) --}}
-        <livewire:crear-empresario :crearEmpresario="$crearEmpresario" :mostrarEdicion="$mostrarEdicion" />
+    <livewire:crear-empresario :crearEmpresario="$crearEmpresario" :mostrarEdicion="$mostrarEdicion" />
     {{-- @endif --}}
 
     {{-- @if ($mostrarEdicion) --}}
-        <livewire:editar-empresario :crearEmpresario="$crearEmpresario" :mostrarEdicion="$mostrarEdicion" :nombreEmpresario="$nombreEmpresario" :idEmpresario="$idEmpresario" />
+    <livewire:editar-empresario :crearEmpresario="$crearEmpresario" :mostrarEdicion="$mostrarEdicion" :nombreEmpresario="$nombreEmpresario" :idEmpresario="$idEmpresario" />
     {{-- @endif --}}
 
-    <livewire:filtrar-empresarios/>
+    <livewire:filtrar-empresarios />
     <div class="py-5">
         <table class="table table-striped">
             <tr class="text-2xl">
@@ -26,7 +26,7 @@
                 </tr>
             @endforeach
         </table>
-        {{$empresarios->links()}}
+        {{ $empresarios->links() }}
     </div>
 
 
