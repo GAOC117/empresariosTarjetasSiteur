@@ -34,7 +34,6 @@ class NuevaRecarga extends Component
         }       
         else{
             $this->montoVentaPlastico = 0;
-            
             $this->ivaPlastico = 0;
         }     
     }
