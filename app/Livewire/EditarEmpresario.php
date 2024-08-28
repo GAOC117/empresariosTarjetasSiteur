@@ -37,18 +37,7 @@ class EditarEmpresario extends Component
 
     ];
 
-    // public function editar($id)
-    // {
-    //     //$this->resetErrorBag();
-    //     $empresario = Empresarios::find($id);
 
-    //     if ($empresario) {
-    //         $this->mostrarEdicion = true;
-    //         $this->idEmpresario = $id;
-    //         $this->nombreEmpresario = $empresario->empresarios;
-    //         // dd($this->nombreEmpresario);
-    //     }
-    // }
 
     public function update()
     {

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-bold text-xl text-green-800 leading-tight">
-            {{ __('Costo plásto e I.V.A') }}
+            {{ __('Costo plástico e I.V.A') }}
         </h2>
     </x-slot>
     <div class="py-12">

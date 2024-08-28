@@ -15,11 +15,11 @@
                     <x-nav-link :href="route('tarjetas.empresarios')" :active="request()->routeIs('tarjetas.empresarios')">
                         {{ __('Tarjetas Empresarios') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('empresarios.index')" :active="request()->routeIs('empresarios.index')">
-                        {{ __('Empresarios') }}
-                    </x-nav-link>
                     <x-nav-link :href="route('recargas.create')" :active="request()->routeIs('recargas.create')">
                         {{ __('Nueva recarga') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('empresarios.index')" :active="request()->routeIs('empresarios.index')">
+                        {{ __('Empresarios') }}
                     </x-nav-link>
                     <x-nav-link :href="route('costos.update')" :active="request()->routeIs('costos.update')">
                         {{ __('Costo plástico e I.V.A') }}
