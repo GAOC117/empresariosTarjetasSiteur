@@ -23,13 +23,13 @@ class Recargas extends Model
         'user_id'
     ];
 
-    public function empresario()
+    public function empresarios()
     {
         return $this->belongsTo(Empresarios::class);
     }
 
     public function registra()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'user_id');
     }
 }

@@ -16,7 +16,10 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-      
+        if (Auth::check()) {
+            return redirect()->route('tarjetas.empresarios'); // Redirige a la ruta deseada si ya está autenticado
+        }
+       
         return view('auth.login');
     }
 
@@ -25,7 +28,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-       
+      
         $request->authenticate();
 
         $request->session()->regenerate();

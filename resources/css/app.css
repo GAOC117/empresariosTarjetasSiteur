@@ -12,3 +12,9 @@
 .mb-negativo{
     margin-bottom: -1rem
 }
+
+.table td.fit, 
+.table th.fit {
+   white-space: nowrap;
+   width: 1%;
+}

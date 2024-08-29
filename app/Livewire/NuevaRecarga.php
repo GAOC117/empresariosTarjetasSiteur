@@ -116,7 +116,7 @@ class NuevaRecarga extends Component
     }
 
         if($insertarNuevaRecarga){
-            session()->flash('message','Empresario registrado exitosamente');
+            session()->flash('message','Recarga registrada exitosamente');
 
             return redirect()->route('tarjetas.empresarios');
         }

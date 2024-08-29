@@ -12,4 +12,5 @@ protected $fillable = [
     'empresarios'
 ];
 
+
 }
