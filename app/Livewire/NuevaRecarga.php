@@ -29,7 +29,6 @@ class NuevaRecarga extends Component
         if($this->cantidadTarjetasNuevas!==""){
 
             $this->montoVentaPlastico = round($this->costoPlastico*$this->cantidadTarjetasNuevas,2);
-            
             $this->ivaPlastico = round(($this->iva/100)*$this->montoVentaPlastico,2);
         }       
         else{
