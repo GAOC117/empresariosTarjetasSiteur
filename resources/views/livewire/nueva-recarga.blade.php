@@ -3,21 +3,21 @@
     <form action="#" class="" wire:submit.prevent="guardarRecarga">
         <div class="row px-2 flex-col lg:flex-row">
             <div class="d-flex flex-column col-md-12 mb-3" wire:ignore>
-                <label class="mb-2 font-bold" for="nombreEmpresario">Nombre del empresario</label>
-                <select class="form-control" wire:model='nombreEmpresario' name="nombreEmpresario"
-                    id="nombreEmpresario">
+                <label class="mb-2 font-bold" for="empresarios_id">Nombre del empresario</label>
+                <select class="form-control" wire:model='empresarios_id' name="empresarios_id"
+                    id="empresarios_id">
                     <option></option>
                     @foreach ($empresarios as $empresario)
                         <option value={{ $empresario->id }}>{{ $empresario->empresarios }}</option>
                     @endforeach
                 </select>
             </div>
-            @error('nombreEmpresario')
+            @error('empresarios_id')
                 {{-- @if ($mostrarMensaje) --}}
                 {{-- <livewire:mostrar-alerta :message="'Debe seleccionar un empresario'" /> --}}
                 <div class="col-md-12 mb-1">
 
-                    <livewire:mostrar-alerta :message="$message" />
+                    <livewire:mostrar-alerta :message="'Debe elegir un empresario'" />
                 </div>
                 {{-- @endif --}}
             @enderror
@@ -26,9 +26,9 @@
 
                 <div class="col-md-4 mb-2 col-12  ">
                     <label class="my-2 font-bold " for="cantidadTarjetasVendidas">Cantidad de tarjetas
-                        vendidas</label>
+                        recibidas</label>
                     <x-text-input id="cantidadTarjetasVendidas" type="number" wire:model="cantidadTarjetasVendidas"
-                        placeholder="# Tarjetas vendidas" class="border p-2 rounded w-100"
+                        placeholder="# Tarjetas recibidas" class="border p-2 rounded w-100"
                         :value="old('cantidadTarjetasVendidas')" />
                     @error('cantidadTarjetasVendidas')
                         <livewire:mostrar-alerta :message="$message" />
@@ -47,7 +47,7 @@
 
                 <div class="col-md-4 mb-5 col-12 ">
                     <label class="my-2 font-bold" for="recarga">Cuanto recarga</label>
-                    <x-text-input id="recarga" type="number" wire:model="recarga" placeholder="$ Pesos"
+                    <x-text-input id="recarga" type="number" step="0.01" wire:model="recarga" placeholder="$ Pesos"
                         class="border p-2 rounded w-full" :value="old('recarga')" />
                     @error('recarga')
                         <livewire:mostrar-alerta :message="$message" />
@@ -74,7 +74,7 @@
 
             <div class="col-md-4">
                 <label class="mb-2 font-bold" for="deposito">Depósito</label>
-                <x-text-input id="deposito" type="number" wire:model="deposito" placeholder="$ Deposito"
+                <x-text-input id="deposito" type="number" step="0.01" wire:model="deposito" placeholder="$ Deposito"
                     class="border p-2 rounded w-full" :value="old('deposito')" />
                 @error('deposito')
                     <livewire:mostrar-alerta :message="$message" />
@@ -82,7 +82,7 @@
             </div>
 
             <div class="col-md-4">
-                <label class="my-2 font-bold" for="fechaDeposito">Fecha depósito</label>
+                <label class="mb-2 font-bold" for="fechaDeposito">Fecha depósito</label>
                 <x-text-input id="fechaDeposito" type="date" wire:model="fechaDeposito" placeholder="fechaDeposito"
                     class="border p-2 rounded w-full" :value="old('fechaDeposito')" />
                 @error('fechaDeposito')
@@ -116,7 +116,7 @@
         $(document).ready(function() {
 
             setTimeout(() => {
-                $('#nombreEmpresario').select2({
+                $('#empresarios_id').select2({
                     placeholder: "--Seleccionar--",
                     allowClear: true
                 });
@@ -124,7 +124,7 @@
 
 
 
-            $('#nombreEmpresario').select2({
+            $('#empresarios_id').select2({
                 language: {
 
                     noResults: function() {
@@ -137,13 +137,13 @@
                     }
                 }
             });
-            $('#nombreEmpresario').on('change', function() {
+            $('#empresarios_id').on('change', function() {
                 //  alert("x");
-                @this.set('nombreEmpresario', this.value);
+                @this.set('empresarios_id', this.value);
             });
         });
 
-        $("#nombreEmpresario").select2({
+        $("#empresarios_id").select2({
             width: 'resolve'
         });
     </script>
