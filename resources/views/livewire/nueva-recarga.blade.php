@@ -104,7 +104,7 @@
             <div class="d-flex justify-content-end mt-md-0 mt-4">
 
                 <x-primary-button class="bg-green-800 hover:bg-green-600">
-                    Crear Vacante
+                   Agregar recarga
                 </x-primary-button>
             </div>
         </div>

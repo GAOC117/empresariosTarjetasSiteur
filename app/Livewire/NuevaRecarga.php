@@ -61,35 +61,35 @@ class NuevaRecarga extends Component
     public function guardarRecarga()
     {
        
-        if ($this->empresarios_id) {
+        // if ($this->empresarios_id) {
 
-            $this->mostrarMensaje = false;
-            $datos = $this->validate();
+        //    // $this->mostrarMensaje = false;
+        //     $datos = $this->validate();
            
-        } else {
+        // } else {
 
-            $this->mostrarMensaje = true;
+            //$//this->mostrarMensaje = true;
             $datos = $this->validate();
             // dd("si mostrar mensaje");
-        }
+        // }
 
         //inserto los 2 campos faltantes...
         $datos['montoVentaPlastico'] = $this->montoVentaPlastico;
         $datos['ivaPlastico'] = $this->ivaPlastico;
 
         //se insertan en esta posicion. tomo un arreglo desde el indice 0 al 4(5-1), luego el arreglo nuevo y luego lo que queda del arreglo y los combino
-        $datos = array_merge(
-            array_slice($datos, 0, 5, true),
-            ['montoVentaPlastico' => $this->montoVentaPlastico],
-            array_slice($datos, 5, null, true)
-        );
+        // $datos = array_merge(
+        //     array_slice($datos, 0, 4, true),
+        //     ['montoVentaPlastico' => $this->montoVentaPlastico],
+        //     array_slice($datos, 5, null, true)
+        // );
 
-        //igual con este metodo
-        $datos = array_merge(
-            array_slice($datos, 0, 6, true),
-            ['ivaPlastico' => $this->ivaPlastico],
-            array_slice($datos, 6, null, true)
-        );
+        // //igual con este metodo
+        // $datos = array_merge(
+        //     array_slice($datos, 0, 5, true),
+        //     ['ivaPlastico' => $this->ivaPlastico],
+        //     array_slice($datos, 5, null, true)
+        // );
 
         //y al final inserto los ultimos 2
         $datos['comentarios'] = $this->comentarios;

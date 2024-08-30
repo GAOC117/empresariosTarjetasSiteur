@@ -12,6 +12,7 @@ class TablaRecargas extends Component
 
     public function render()
     {
+        
 
         $tablaRecargas = Recargas::all();
        

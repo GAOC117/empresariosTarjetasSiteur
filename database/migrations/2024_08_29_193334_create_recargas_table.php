@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('recargas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('empresarios_id')->constrained()->onDelete('no action');
-            $table->decimal('cantidadTarjetasVendidas',5,2);
+            $table->decimal('cantidadTarjetasVendidas',20,2);
             $table->integer('cantidadTarjetasNuevas');
-            $table->decimal('recarga',10,2);
-            $table->decimal('montoVentaPlastico',5,2);
-            $table->decimal('ivaPlastico',5,2);
+            $table->decimal('recarga',20,2);
+            $table->decimal('montoVentaPlastico',20,2);
+            $table->decimal('ivaPlastico',20,2);
             $table->string('oficio');
-            $table->decimal('deposito',10,2);
+            $table->decimal('deposito',20,2);
             $table->date('fechaDeposito');
             $table->string('comentarios');
             $table->foreignId('user_id')->constrained()->onDelete('no action');

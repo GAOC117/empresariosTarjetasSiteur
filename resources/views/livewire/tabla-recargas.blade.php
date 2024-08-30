@@ -12,6 +12,7 @@
         </div>
     @endif
 
+    <livewire:editar-recarga/>
 
     <div class="table-responsive">
 
@@ -44,13 +45,22 @@
                     <td>{{ $recarga->comentarios }}</td>
                     <td>{{ $recarga->registra->name }}</td>
                     <td class="d-flex justify-content-center bg-red-800">
-                        <button wire:click = "editar({{ $recarga->id }})" wire:model="idEmpresario"
+                        <button wire:click = "$dispatch('openModal',{recarga_id:{{$recarga->id}}})" 
                             class="btn bg-green-700 hover:bg-green-500 text-white"><i
                                 class="fa-solid fa-pencil"></i></button>
+                                
                     </td>
                 </tr>
             @endforeach
         </table>
     </div>
     {{-- {{ $tablaRecargas->links() }} --}}
+
+
+    <script>
+        window.addEventListener('show-modal', event => {
+            var modal = new bootstrap.Modal(document.getElementById('modalComponent'));
+            modal.show();
+        });
+    </script>
 </div>
