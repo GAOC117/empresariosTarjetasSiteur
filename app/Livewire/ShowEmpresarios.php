@@ -2,15 +2,16 @@
 
 namespace App\Livewire;
 
-use App\Models\Empresarios;
 use Livewire\Component;
+use App\Models\Empresarios;
 use Livewire\WithPagination;
+use Livewire\WithoutUrlPagination;
 
 
 class ShowEmpresarios extends Component
 {
     
-    use WithPagination;
+    use WithPagination,WithoutUrlPagination;
 
     public $idEmpresario;
     public $mostrarEdicion = false;

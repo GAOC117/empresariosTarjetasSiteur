@@ -25,7 +25,7 @@ class EditarRecarga extends Component
     public $idRegistra;
     public $costoPlastico; // = 25.86;
     public $iva; // = 16;
-   
+
 
     protected $rules = [
         'empresarios_id' => 'required',
@@ -42,19 +42,16 @@ class EditarRecarga extends Component
     {
         $this->resetErrorBag();
         $this->empresarios_id = null;
-        $this->nombreEmpresario=null;
-        $this->cantidadTarjetasVendidas=null;
-        $this->cantidadTarjetasNuevas=null;
-        $this->recarga=null;
-        $this->montoVentaPlastico=null;
-        $this->ivaPlastico=null;
-        $this->oficio=null;
-        $this->deposito=null;
-        $this->fechaDeposito=null;
-        $this->comentarios=null;
-        
-      
-        
+        $this->nombreEmpresario = null;
+        $this->cantidadTarjetasVendidas = null;
+        $this->cantidadTarjetasNuevas = null;
+        $this->recarga = null;
+        $this->montoVentaPlastico = null;
+        $this->ivaPlastico = null;
+        $this->oficio = null;
+        $this->deposito = null;
+        $this->fechaDeposito = null;
+        $this->comentarios = null;
     }
 
     public function mount()
@@ -74,7 +71,7 @@ class EditarRecarga extends Component
             $this->montoVentaPlastico = round($this->costoPlastico * $this->cantidadTarjetasNuevas, 2);
             $this->ivaPlastico = round(($this->iva / 100) * $this->montoVentaPlastico, 2);
         } else {
-            $this->cantidadTarjetasNuevas = 0;
+
             $this->montoVentaPlastico = 0;
             $this->ivaPlastico = 0;
         }
@@ -84,8 +81,14 @@ class EditarRecarga extends Component
     public function update()
     {
 
+
+        if ($this->cantidadTarjetasNuevas === null || $this->cantidadTarjetasNuevas === '') {
+            $this->cantidadTarjetasNuevas = 0;
+            $this->montoVentaPlastico = 0;
+            $this->ivaPlastico = 0;
+        }
         // dd($this->empresarios_id);
-$recarga = Recargas::find($this->recarga_id);
+        $recarga = Recargas::find($this->recarga_id);
         $datos = $this->validate();
         // dd("si mostrar mensaje");
         // }
@@ -94,9 +97,10 @@ $recarga = Recargas::find($this->recarga_id);
         $datos['ivaPlastico'] = $this->ivaPlastico;
 
         //se insertan en esta posicion. tomo un arreglo desde el indice 0 al 4(5-1), luego el arreglo nuevo y luego lo que queda del arreglo y los combino
-    
+
         //y al final inserto los ultimos 2
-        $datos['comentarios'] = $this->comentarios;
+        $this->comentarios === null || $this->comentarios === '' ?
+            $datos['comentarios'] = "-" : $datos['comentarios'] = $this->comentarios;
         $datos['user_id'] = $this->idRegistra;
 
         $recarga->empresarios_id = $datos['empresarios_id'];
@@ -112,17 +116,18 @@ $recarga = Recargas::find($this->recarga_id);
         $recarga->user_id = $datos['user_id'];
         //  dd($recarga);
 
-        
+
         if ($recarga->save()) {
             session()->flash('message', 'Recarga actualizada exitosamente.');
-           
         } else {
             session()->flash('error', 'No se pudo actualizar el empresario.');
         }
 
-        return redirect()->route('tarjetas.empresarios');
+        
 
+        return redirect()->route('tarjetas.empresarios');
     }
+
 
     public function openModal($recarga_id)
     {
@@ -134,16 +139,15 @@ $recarga = Recargas::find($this->recarga_id);
         $this->render();
         $this->nombreEmpresario = $Empresario->empresarios->empresarios;
         $this->empresarios_id = $Empresario->empresarios_id;
-        $this->cantidadTarjetasVendidas=$Empresario->cantidadTarjetasVendidas;
-        $this->cantidadTarjetasNuevas=$Empresario->cantidadTarjetasNuevas;
-        $this->recarga=$Empresario->recarga;
-        $this->montoVentaPlastico=$Empresario->montoVentaPlastico;
-        $this->ivaPlastico=$Empresario->ivaPlastico;
-        $this->oficio=$Empresario->oficio;
-        $this->deposito=$Empresario->deposito;
-        $this->fechaDeposito=$Empresario->fechaDeposito;
-        $this->comentarios=$Empresario->comentarios;
-       
+        $this->cantidadTarjetasVendidas = $Empresario->cantidadTarjetasVendidas;
+        $this->cantidadTarjetasNuevas = $Empresario->cantidadTarjetasNuevas;
+        $this->recarga = $Empresario->recarga;
+        $this->montoVentaPlastico = $Empresario->montoVentaPlastico;
+        $this->ivaPlastico = $Empresario->ivaPlastico;
+        $this->oficio = $Empresario->oficio;
+        $this->deposito = $Empresario->deposito;
+        $this->fechaDeposito = $Empresario->fechaDeposito;
+        $this->comentarios = $Empresario->comentarios;
     }
 
     public function render()

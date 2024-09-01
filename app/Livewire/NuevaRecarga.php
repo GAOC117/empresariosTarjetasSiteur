@@ -53,7 +53,7 @@ class NuevaRecarga extends Component
             $this->montoVentaPlastico = round($this->costoPlastico * $this->cantidadTarjetasNuevas, 2);
             $this->ivaPlastico = round(($this->iva / 100) * $this->montoVentaPlastico, 2);
         } else {
-            $this->cantidadTarjetasNuevas = 0;
+            
             $this->montoVentaPlastico = 0;
             $this->ivaPlastico = 0;
         }
@@ -67,7 +67,14 @@ class NuevaRecarga extends Component
         //     $datos = $this->validate();
            
         // } else {
+        
+        if($this->cantidadTarjetasNuevas===null||$this->cantidadTarjetasNuevas==='')
+            {
+                $this->cantidadTarjetasNuevas=0;
+                $this->montoVentaPlastico=0;
+                $this->ivaPlastico=0;
 
+            }
             //$//this->mostrarMensaje = true;
             $datos = $this->validate();
             // dd("si mostrar mensaje");
@@ -92,7 +99,9 @@ class NuevaRecarga extends Component
         // );
 
         //y al final inserto los ultimos 2
-        $datos['comentarios'] = $this->comentarios;
+        $this->comentarios===null||$this->comentarios===''?
+        $datos['comentarios']="-":$datos['comentarios']=$this->comentarios;
+        
         $datos['user_id'] = $this->idRegistra;
 
         // dd($datos);

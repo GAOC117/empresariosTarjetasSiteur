@@ -1,5 +1,4 @@
-<div wire:ignore.self class="modal fade" id="modalComponent" aria-labelledby="modalComponentLabel"
-    aria-hidden="true">
+<div wire:ignore.self class="modal fade" id="modalComponent" aria-labelledby="modalComponentLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
@@ -146,88 +145,91 @@
 
 
             $('#empresarios_id').select2({
-                        dropdownParent: $('#modalComponent')
-                    });
+                dropdownParent: $('#modalComponent')
+            });
 
 
 
-                    $.fn.modal.Constructor.prototype.enforceFocus = function() {};
-                   
-                    setTimeout(() => {
-                        $('#empresarios_id').select2({
-                            placeholder: "--Seleccionar--",
-                            allowClear: true
-                        });
-                    }, 1000);
+            $.fn.modal.Constructor.prototype.enforceFocus = function() {};
+
+            setTimeout(() => {
+                $('#empresarios_id').select2({
+                    placeholder: "--Seleccionar--",
+                    allowClear: true
+                });
+            }, 1000);
 
 
 
-                    $('#empresarios_id').select2({
-                        language: {
+            $('#empresarios_id').select2({
+                language: {
 
-                            noResults: function() {
+                    noResults: function() {
 
-                                return "No hay resultados";
-                            },
-                            searching: function() {
+                        return "No hay resultados";
+                    },
+                    searching: function() {
 
-                                return "Buscando...";
-                            }
-                        }
-                    });
+                        return "Buscando...";
+                    }
+                }
+            });
 
-                    document.addEventListener('livewire:load', function() {
-                        $('#empresarios_id').select2({
-                            dropdownParent: $('#modalComponent'),
-                            placeholder: "--Seleccionar--",
-                            allowClear: true
-                        });
-
-                        $('#empresarios_id').on('change', function() {
-                            //  alert("x");
-                            @this.set('empresarios_id', this.value);
-                        });
-                    });
-
-                    document.addEventListener('livewire:update', function() {
-                        $('#empresarios_id').select2({
-                            dropdownParent: $('#modalComponent'),
-                            placeholder: "--Seleccionar--",
-                            allowClear: true
-                        });
-                    });
-
-                    $('#modalComponent').on('shown.bs.modal', function() {
-                        $('#empresarios_id').select2({
-                            dropdownParent: $('#modalComponent'),
-                            placeholder: "--Seleccionar--",
-                            allowClear: true
-                        });
-                    });
+            document.addEventListener('livewire:load', function() {
 
 
 
+                $('#empresarios_id').select2({
+                    dropdownParent: $('#modalComponent'),
+                    placeholder: "--Seleccionar--",
+                    allowClear: true
+                });
 
-                    $('#empresarios_id').on('change', function() {
+                $('#empresarios_id').on('change', function() {
+                    //  alert("x");
+                    @this.set('empresarios_id', this.value);
+                });
+            });
+
+            document.addEventListener('livewire:update', function() {
+                $('#empresarios_id').select2({
+                    dropdownParent: $('#modalComponent'),
+                    placeholder: "--Seleccionar--",
+                    allowClear: true
+                });
+            });
+
+            $('#modalComponent').on('shown.bs.modal', function() {
+                $('#empresarios_id').select2({
+                    dropdownParent: $('#modalComponent'),
+                    placeholder: "--Seleccionar--",
+                    allowClear: true
+                });
+            });
+
+
+
+
+            $('#empresarios_id').on('change', function() {
                 //  alert("x");
                 @this.set('empresarios_id', this.value);
             });
-                    $("#empresarios_id").select2({
-                        width: 'resolve'
-                    });
-
-        
+            $("#empresarios_id").select2({
+                width: 'resolve'
+            });
 
 
 
-        
-                });
 
-    
 
-                
 
-                    //      
+        });
+
+
+
+
+
+        //      
     </script>
 
 </div>

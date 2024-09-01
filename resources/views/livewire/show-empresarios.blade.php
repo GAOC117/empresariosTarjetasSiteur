@@ -21,12 +21,12 @@
                 <tr>
                     <td>{{ $empresario->empresarios }}</td>
                     <td class="d-flex justify-content-center"><button wire:click = "editar({{ $empresario->id }})"
-                            wire:model="idEmpresario" class="btn bg-green-700 hover:bg-green-500 text-white"><i
-                                class="fa-solid fa-pencil"></i></button></td>
+                            wire:model="idEmpresario" class="btn bg-green-700 hover:bg-green-500 text-white">
+                            <i class="fa-solid fa-pencil"></i></button></td>
                 </tr>
             @endforeach
         </table>
-        {{ $empresarios->links() }}
+        {{ $empresarios->links(data: ['scrollTo' => false]) }} {{-- Esto hace que la pagina no haga scroll hasta el inicio --}}
     </div>
 
 

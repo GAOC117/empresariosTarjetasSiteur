@@ -1,5 +1,4 @@
 <div>
-    <p>Aqui va la tabla de recargas</p>
     @if (session()->has('message'))
         <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 5000)" x-show="show" class="alert alert-success">
             {{ session('message') }}
@@ -12,7 +11,10 @@
         </div>
     @endif
 
+
+
     <livewire:editar-recarga/>
+    <livewire:filtrar-recargas/>
 
     <div class="table-responsive">
 
@@ -41,7 +43,7 @@
                     <td>${{ $recarga->ivaPlastico }}</td>
                     <td>{{ $recarga->oficio }}</td>
                     <td>${{ $recarga->deposito }}</td>
-                    <td>{{ $recarga->fechaDeposito }}</td>
+                    <td>{{ \Carbon\Carbon::parse($recarga->fechaDeposito)->format('d/m/Y') }}</td>
                     <td>{{ $recarga->comentarios }}</td>
                     <td>{{ $recarga->registra->name }}</td>
                     <td class="d-flex justify-content-center bg-red-800">
@@ -53,6 +55,7 @@
                 </tr>
             @endforeach
         </table>
+        {{$tablaRecargas->links(data: ['scrollTo' => false])}}
     </div>
     {{-- {{ $tablaRecargas->links() }} --}}
 
