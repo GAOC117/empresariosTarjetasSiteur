@@ -28,7 +28,7 @@ class Recargas extends Model
         return $this->belongsTo(Empresarios::class);
     }
 
-    public function registra() //no existe el modelo de registra por eso se pasa el id como llave foranea
+    public function registra() // Usuario que registró esta recarga. Como el método no se llama 'user', especificamos 'user_id'. que es la llave foranea
     {
         return $this->belongsTo(User::class,'user_id');
     }
